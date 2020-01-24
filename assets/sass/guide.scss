@@ -1,0 +1,134 @@
+// 컬러 값
+// 모노톤
+$color-main: #ddecce;
+$color-point: #cc3300;
+$color-black: #212121;
+$color-black1: #111111;
+$color-black2: #222222;
+$color-black3: #333333;
+$color-black4: #444444;
+$color-black5: #555555;
+$color-black6: #666666;
+$color-black7: #777777;
+$color-black8: #888888;
+$color-black9: #999999;
+$color-gray1: #cccccc;
+$color-gray2: #d1d1d1;
+$color-gray3: #e6e7e9;
+$color-gray4: #fafafa;
+$color-white: #ffffff;
+$color-fail: #FF4081;
+$color-success: #4EC772;
+
+// 폰트 변수
+$font-size-1 : 2.5rem; // 40px
+$font-size-2 : 2rem; // 32px
+$font-size-3 : 1.5rem; // 24px
+$font-size-4 : 1.125rem; // 18px
+$font-size-5 : 1rem; //16px
+$font-size-6 : 0.75rem; //12px
+$font-size-7 : 0.75rem; //12px -삭제 예정.
+// 폰트 행간변수
+$line-height-1 : 3.5rem; //56px
+$line-height-2 : 2.75rem; //44px
+$line-height-3 : 2.375rem; //38px
+$line-height-4 : 1.875rem; //30px
+$line-height-5 : 1.5rem; //24px
+$line-height-6 : 1.125rem; //18px
+$line-height-7 : 1.125rem; //18px -삭제 예정.
+
+// 자식 float 클리어타입 속성 부모 무시 방지용
+@mixin floatclear(){
+  &:after{
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+@mixin ellipsis(){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+@mixin transform($p){
+  -webkit-transform: $p;
+  -moz-transform: $p;
+  -ms-transform: $p;
+  -o-transform: $p;
+  transform: $p;
+}
+@mixin transition($p){
+  -webkit-transition: $p;
+  -moz-transition: $p;
+  -o-transition: $p;
+  transition: $p;
+}
+@mixin box-shadow($p){
+  -webkit-box-shadow: $p;
+  -moz-box-shadow: $p;
+  -o-box-shadow: $p;
+  box-shadow: $p;
+}
+
+
+@font-face { // 스포카 한 산스 - 볼드
+  font-family: 'Spoqa Han Sans';
+  font-weight: 700;
+  src: local('Spoqa Han Sans'),
+  url('../font/SpoqaHanSansBold.woff2') format('woff2'),
+  url('../font/SpoqaHanSansBold.woff') format('woff'),
+  url('../font/SpoqaHanSansBold.ttf') format('truetype');
+}
+@font-face { // 스포카 한 산스 - 레귤러
+  font-family: 'Spoqa Han Sans';
+  font-weight: 400;
+  src: local('Spoqa Han Sans'),
+  url('../font/SpoqaHanSansRegular.woff2') format('woff2'),
+  url('../font/SpoqaHanSansRegular.woff') format('woff'),
+  url('../font/SpoqaHanSansRegular.ttf') format('truetype');
+}
+@font-face { // 스포카 한 산스 - 라이트
+  font-family: 'Spoqa Han Sans';
+  font-weight: 300;
+  src: local('Spoqa Han Sans'),
+  url('../font/SpoqaHanSansLight.woff2') format('woff2'),
+  url('../font/SpoqaHanSansLight.woff') format('woff'),
+  url('../font/SpoqaHanSansLight.ttf') format('truetype');
+}
+@font-face { // 스포카 한 산스 - 씬
+  font-family: 'Spoqa Han Sans';
+  font-weight: 100;
+  src: local('Spoqa Han Sans'),
+  url('../font/SpoqaHanSansThin.woff2') format('woff2'),
+  url('../font/SpoqaHanSansThin.woff') format('woff'),
+  url('../font/SpoqaHanSansThin.ttf') format('truetype');
+}
+*{
+  font-family: Spoqa Han Sans, 'Spoqa Han Sans', sans-serif;;
+}
+
+// 폰트 영역
+//      3-2. 폰트 기본 단위 설정
+//      *html rem 단위 기준 = 16px = 12pt = 1rem (중요함)
+//       h1/h2 - 대 제목 전용
+//       h4/h3 - 텍스트 헤더용
+//       h5,h6 - 기존 텍스트용
+// --------------------------------
+html{ font-size: 16px; } // 16px = 12pt
+body{ font-size: 0; } // inline-block gap 제거
+h1{ font-size: $font-size-1; line-height: $line-height-1 } // 40px
+h2{ font-size: $font-size-2; line-height: $line-height-2 } // 32px
+h3{ font-size: $font-size-3; line-height: $line-height-3 } // 24px
+h4{ font-size: $font-size-4; line-height: $line-height-4 } // 18px
+h5,p,a,button,input,textarea,li{ font-size: $font-size-5; line-height: $line-height-5 } //16px
+h6{ font-size: $font-size-6; line-height: $line-height-6 } //12px
+@media screen and (max-width: 767px) {
+  .xs-h1{ font-size: $font-size-1 !important; line-height: $line-height-1 !important; } // 40px
+  .xs-h2{ font-size: $font-size-2 !important; line-height: $line-height-2 !important; } // 32px
+  .xs-h3{ font-size: $font-size-3 !important; line-height: $line-height-3 !important; } // 24px
+  .xs-h4{ font-size: $font-size-4 !important; line-height: $line-height-4 !important; } // 18px
+  .xs-h5{ font-size: $font-size-5 !important; line-height: $line-height-5 !important; } //16px
+  .xs-h6{ font-size: $font-size-6 !important; line-height: $line-height-6 !important; } //12px
+}
